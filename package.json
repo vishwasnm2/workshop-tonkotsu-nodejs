@@ -1,8 +1,8 @@
 {
-  "name": "@vishwasnm2/workshop-tonkotsu-nodejs",
+  "name": "workshop-tonkotsu-nodejs",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jpstevens/circleci.git"
+    "url": "https://github.com/vishwasnm2/workshop-tonkotsu-nodejs.git"
   },
   "description": "Boilerplate NodeJS webapp codebase",
   "version": "0.0.1",
