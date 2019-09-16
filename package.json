@@ -1,15 +1,20 @@
 {
-  "name": "workshop-tonkotsu-nodejs",
+  "name": "@vishwasnm2/tonkotsu-nodejs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vishwasnm2/workshop-tonkotsu-nodejs.git"
+  },
   "description": "Boilerplate NodeJS webapp codebase",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "license": "MIT",
-  "author": "pierluigi@github.com",
+  "author": "vishwasm@devtools.in",
   "scripts": {
     "start": "node index.js",
     "lint": "eslint */**.js",
     "test": "nyc mocha",
-    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "publish": "npm publish"
   },
   "dependencies": {
     "chalk": "^2.4.2",
@@ -23,8 +28,18 @@
   "devDependencies": {
     "eslint": "5.5.0",
     "prettier": "^1.18.2"
+
   }
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/@vishwasnm2" 
   }
+
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com/@vishwasnm2"
+  },
+  "scripts": {
+ "login": "npm login --registry=https://npm.pkg.github.com/",
+ "publish": "npm publish"}
+ 
 }
