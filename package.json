@@ -15,7 +15,6 @@
     "test": "nyc mocha",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
     "publish": "npm publish"
-  }
   },
   "dependencies": {
     "chalk": "^2.4.2",
