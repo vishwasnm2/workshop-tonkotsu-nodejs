@@ -6,8 +6,6 @@
   "private": false,
   "license": "MIT",
   "author": "vishwasm@devtools.in",
-  "Username": "vishwasnm2",
-  "Password": "7d466e485301ad311c4ac0d384911765a6551c9e"
   "scripts": {
     "start": "node index.js",
     "lint": "eslint */**.js",
