@@ -11,6 +11,8 @@
     "lint": "eslint */**.js",
     "test": "nyc mocha",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    
+  }
   },
   "dependencies": {
     "chalk": "^2.4.2",
@@ -27,5 +29,6 @@
   },
   "publishConfig": {
     "registry":"https://npm.pkg.github.com/@vishwasnm2"
-  }
+  },
+"publish": "npm publish"
 }
