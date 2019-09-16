@@ -1,6 +1,9 @@
 {
   "name": "@vishwasnm2/workshop-tonkotsu-nodejs",
-  "repository": "https://github.com/vishwasnm2/workshop-tonkotsu-nodejs.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpstevens/circleci.git"
+  },
   "description": "Boilerplate NodeJS webapp codebase",
   "version": "0.0.1",
   "private": false,
@@ -11,7 +14,7 @@
     "lint": "eslint */**.js",
     "test": "nyc mocha",
     "report-coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
-    
+    "publish": "npm publish"
   }
   },
   "dependencies": {
@@ -29,6 +32,5 @@
   },
   "publishConfig": {
     "registry":"https://npm.pkg.github.com/@vishwasnm2"
-  },
-"publish": "npm publish"
+  }
 }
