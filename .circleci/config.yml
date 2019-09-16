@@ -1,0 +1,11 @@
+ version: 2
+ jobs:
+     steps:
+       - checkout       
+          - run:
+	          name:install
+            command: npm install
+            name: build
+	          command: npm run build
+            name: test
+            command: npm test
