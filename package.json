@@ -3,7 +3,7 @@
   "repository": "git://github.com/vishwasnm2/workshop-tonkotsu-nodejs.git",
   "description": "Boilerplate NodeJS webapp codebase",
   "version": "0.0.1",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "author": "vishwasm@devtools.in",
   "scripts": {
