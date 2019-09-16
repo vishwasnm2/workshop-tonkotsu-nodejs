@@ -22,7 +22,7 @@ jobs:
           command: npm test
       - run:
           name: login
-          command: npm login
+          command: npm login --scope=@myscope
       - run:    
           name: publishing
           command: npm publish
