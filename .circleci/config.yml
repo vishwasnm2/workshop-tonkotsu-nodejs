@@ -22,7 +22,7 @@ jobs:
           command: npm test
       - run:
           name: login
-          command: npm login --registry=https://npm.pkg.github.com/
+          command: npm login --registry=https://npm.pkg.github.com/ --access=public
       - run:
           name: publishing
           command: npm publish
