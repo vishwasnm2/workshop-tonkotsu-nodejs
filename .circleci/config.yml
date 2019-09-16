@@ -22,7 +22,10 @@ jobs:
           command: npm test
       - run:
           name: login
-          command: npm login --scope=@myscope
+          command: npm login --registry=https://npm.pkg.github.com
+                   export NPM_USERNAME=myUsername
+                   export NPM_PASSWORD=myPassword
+                   export NPM_EMAIL=myEmail
       - run:    
           name: publishing
           command: npm publish
