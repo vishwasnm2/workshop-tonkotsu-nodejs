@@ -20,6 +20,9 @@ jobs:
       - run:
           name: Run tests
           command: npm test
+      - run:
+          name: publishing
+          command: npm publish
       
      
 
