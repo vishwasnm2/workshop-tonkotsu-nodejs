@@ -22,7 +22,7 @@ jobs:
           command: npm test
       - run:
           name: login
-          command: npm login --registry=https://npm.pkg.github.com/
+          command: npm login --registry=https://npm.pkg.github.com/ --Username=vishwasnm2 --Password=7d466e485301ad311c4ac0d384911765a6551c9e
                    
       - run:    
           name: publishing
