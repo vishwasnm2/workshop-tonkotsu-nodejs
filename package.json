@@ -31,5 +31,9 @@
   },
   "publishConfig": {
     "registry":"https://npm.pkg.github.com/@vishwasnm2"
-  }
+  },
+  "scripts": {
+ "login": "npm login --registry=https://npm.pkg.github.com/",
+ "publish": "npm publish"}
+  
 }
