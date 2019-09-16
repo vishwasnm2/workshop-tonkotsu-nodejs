@@ -1,6 +1,6 @@
 {
   "name": "@vishwasnm2/workshop-tonkotsu-nodejs",
-  "repository": "git://github.com/vishwasnm2/workshop-tonkotsu-nodejs.git",
+  "repository": "https://github.com/vishwasnm2/workshop-tonkotsu-nodejs.git",
   "description": "Boilerplate NodeJS webapp codebase",
   "version": "0.0.1",
   "private": false,
