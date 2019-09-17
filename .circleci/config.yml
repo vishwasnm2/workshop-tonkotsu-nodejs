@@ -19,13 +19,13 @@ jobs:
       enabled: true
     working_directory: ~/repo
     environment:
-      HEROKU_APP: "tnkotsu-vishwasnm2-staging"
+      HEROKU_APP: "$HEROKU_APP"
     steps:
       - checkout
       - run:
           name: Deploy Master to Heroku
           command: |
-            git push https://heroku:$71ab5865-2164-41b3-868c-bf48f1c8e7ec@git.heroku.com/$HEROKU_APP.git master
+            git push https://heroku:$HEROKU_API@git.heroku.com/$HEROKU_APP.git master
 
 workflows:
   version: 2.1
