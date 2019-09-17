@@ -2,36 +2,56 @@ version: 2
 
 defaults: &defaults
   working_directory: ~/repo
-  docker:
-    - image: circleci/node:8.9.1
 
 jobs:
-  test:
-    <<: *defaults  
-    steps:
-      - checkout
+  one:
+    <<: *defaults
+    docker:
+      - image: circleci/node:8.9.1
+      
+      steps:
+        - checkout
 
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+        - restore_cache:
+            keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-
 
-      - run: npm install  #install node.js package
-      - run:
-          name: Run tests
-          command: npm test
-          
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+        - run: npm install  #install node.js package
+        - run:
+            name: Run tests
+            command: npm test
 
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
+        - save_cache:
+            paths:
+              - node_modules
+            key: v1-dependencies-{{ checksum "package.json" }}
+
+        - persist_to_workspace:
+            root: ~/repo
+            paths: .
+   two:
+    orbs:
+      heroku: circleci/heroku@1.0.0
+    deploy: 
+      executor: heroku/default
+      steps:
+        - checkout
+        - heroku/install
+        - heroku/deploy-via-git
+      ignore: master
+      deploy-via-git:
+        parameters:
+          app-name:
+            type: string
+            default: $tnkotsu-vishwasnm2-staging
+          api-key:
+            type: string
+            default: $71ab5865-2164-41b3-868c-bf48f1c8e7ec
 
 workflows:
   version: 2
   only_test:
     jobs:
-      - test
+      - one
+      - two
