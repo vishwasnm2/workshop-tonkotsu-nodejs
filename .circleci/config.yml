@@ -28,7 +28,7 @@ jobs:
       - persist_to_workspace:
           root: ~/repo
           paths: .
-   two:
+  two:
     orbs:
       heroku: circleci/heroku@1.0.0
     deploy: 
