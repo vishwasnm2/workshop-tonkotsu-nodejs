@@ -5,9 +5,10 @@ defaults: &defaults
 
 jobs:
   one:
-    <<: *defaults
     docker:
       - image: circleci/node:8.9.1
+     <<: *defaults
+      
       
       steps:
         - checkout
