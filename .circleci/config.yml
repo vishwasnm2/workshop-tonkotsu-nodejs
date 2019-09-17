@@ -1,12 +1,9 @@
 version: 2.1
-
-defaults: &defaults
-  working_directory: ~/repo
-
 jobs:
-  one:
+  build:
     docker:
-      - image: circleci/node:8.9.1 
+      - image: circleci/node:8.9.1
+    working_directory: ~/repo
     steps:
       - checkout
       - restore_cache:
@@ -17,28 +14,25 @@ jobs:
       - run:
           name: Run tests
           command: npm test
-  two:
-    orbs:
-      heroku: circleci/heroku@1.0.0
-    deploy: 
-      executor: heroku/default
-      steps:
-        - checkout
-        - heroku/install
-        - heroku/deploy-via-git
-      ignore: master
-      deploy-via-git:
-        parameters:
-          app-name:
-            type: string
-            default: $tnkotsu-vishwasnm2-staging
-          api-key:
-            type: string
-            default: $71ab5865-2164-41b3-868c-bf48f1c8e7ec
+  deploy:
+    machine:
+      enabled: true
+    working_directory: ~/repo
+    environment:
+      HEROKU_APP: "tnkotsu-vishwasnm2-staging"
+	  ignore: master  
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$71ab5865-2164-41b3-868c-bf48f1c8e7ec@git.heroku.com/$HEROKU_APP.git master
 
 workflows:
   version: 2.1
-  only_test:
+  build-and-deploy:
     jobs:
-      - one
-      - two
+      - build
+      - deploy:
+          requires:
+            - build
