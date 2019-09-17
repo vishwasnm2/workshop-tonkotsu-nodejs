@@ -20,7 +20,6 @@ jobs:
     working_directory: ~/repo
     environment:
       HEROKU_APP: "tnkotsu-vishwasnm2-staging"
-    only-branch: staging
     steps:
       - checkout
       - run:
