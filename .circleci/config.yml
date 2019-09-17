@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 defaults: &defaults
   working_directory: ~/repo
@@ -37,7 +37,7 @@ jobs:
             default: $71ab5865-2164-41b3-868c-bf48f1c8e7ec
 
 workflows:
-  version: 2
+  version: 2.1
   only_test:
     jobs:
       - one
