@@ -1,37 +1,40 @@
-version: 2
-
-defaults: &defaults
-  working_directory: ~/repo
-  docker:
-    - image: circleci/node:8.9.1
-
+version: 2.1
 jobs:
-  test:
-    <<: *defaults  
+  build:
+    docker:
+      - image: circleci/node:8.9.1
+    working_directory: ~/repo
     steps:
       - checkout
-
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
           - v1-dependencies-
-
-      - run: npm install
+      - run: npm install  #install node.js package
       - run:
           name: Run tests
           command: npm test
-          
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      - persist_to_workspace:
-          root: ~/repo
-          paths: .
+  deploy:
+    machine:
+      enabled: true
+    working_directory: ~/repo
+    environment:
+      HEROKU_APP: tnkotsu-vishwasnm2-staging
+    steps:
+      - checkout
+      - run:
+          name: Deploy Staging to Heroku
+          command: |
+            git push https://heroku:$HEROKU_API@git.heroku.com/$HEROKU_APP.git master
 
 workflows:
-  version: 2
-  only_test:
+  version: 2.1
+  build-and-deploy:
     jobs:
-      - test
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: master
